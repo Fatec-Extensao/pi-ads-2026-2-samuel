@@ -1,0 +1,180 @@
+**CENTRO ESTADUAL DE EDUCAÇÃO TECNOLÓGICA PAULA SOUZA**
+
+**FACULDADE DE TECNOLOGIA DE LINS PROF. ANTONIO SEABRA**
+
+**CURSO SUPERIOR DE TECNOLOGIA EM ANÁLISE E DESENVOLVIMENTO DE
+SISTEMAS**
+
+**IGOR RODRIGUES SANTOS**
+
+**LUIZ MIGUEL SCHIAZZA**
+
+**MARCELO OLIVEIRA SOUZA**
+
+**MATHEUS CARDOSO DE OLIVEIRA BISPO**
+
+**SAMUEL DA SILVA ROBLES GARCIA**
+
+**DESENVOLVIMENTO DE ALGORITMO PARA GERAÇÃO DE SENHAS**
+
+**ALEATÓRIAS POR CATEGORIA DE USUÁRIO**
+
+**LINS/SP**
+
+**1º SEMESTRE/2026**
+
+**RESUMO**
+
+Este trabalho apresenta o desenvolvimento de um algoritmo simples para
+geração de senhas aleatórias conforme a categoria do usuário. A
+atividade foi feita em VisualG e teve como objetivo solicitar uma
+categoria de acesso, validar a opção informada e criar dez senhas com
+oito caracteres cada. A primeira letra da senha identifica a categoria
+escolhida, sendo P para professor, A para aluno e F para funcionário.
+Para completar as senhas, o algoritmo utiliza caracteres permitidos,
+como letras maiúsculas, números e alguns símbolos. Também foi elaborado
+um fluxograma para representar o funcionamento do sistema de forma
+visual. Com isso, foi possível praticar estruturas condicionais,
+estruturas de repetição e o uso de vetor, mantendo uma solução simples e
+adequada ao início dos estudos em lógica de programação.
+
+**Palavras-chave:** Algoritmo. Senhas. VisualG. Fluxograma.
+
+**1 INTRODUÇÃO**
+
+A lógica de programação é uma parte importante para quem está começando
+na área de Análise e Desenvolvimento de Sistemas. Por meio dela, é
+possível organizar uma sequência de passos para resolver um problema de
+forma clara. Neste trabalho, foi desenvolvido um algoritmo para gerar
+senhas aleatórias de acordo com a categoria de usuário informada.
+
+A atividade solicitava que o sistema identificasse se o usuário era
+professor, aluno ou funcionário. A partir dessa informação, a senha
+deveria começar obrigatoriamente com a letra da categoria escolhida.
+Depois disso, os demais caracteres seriam gerados de forma aleatória,
+respeitando a quantidade total de oito caracteres.
+
+**2 DESENVOLVIMENTO**
+
+O algoritmo foi pensado de maneira simples, utilizando comandos básicos
+do VisualG. Primeiro, o programa apresenta as opções de categoria para o
+usuário. Em seguida, ele lê a opção digitada e verifica se ela é válida.
+Caso o usuário digite uma letra diferente de P, A ou F, o sistema mostra
+uma mensagem de erro e pede a categoria novamente.
+
+Depois que a categoria é validada, o programa inicia a geração das
+senhas. Foi usado um vetor com dez posições para armazenar todas as
+senhas criadas. Cada senha começa com a letra da categoria e recebe mais
+sete caracteres sorteados da lista permitida.
+
+**2.1 Regras utilizadas**
+
+As regras utilizadas foram: gerar exatamente dez senhas, cada uma com
+oito caracteres; iniciar cada senha com a letra da categoria; aceitar
+somente as categorias professor, aluno e funcionário; e utilizar apenas
+os caracteres permitidos no enunciado da atividade.
+
+**2.2 Algoritmo em VisualG**
+
+> algoritmo "Gerador de Senhas"
+>
+> var
+>
+> categoria: caractere
+>
+> caracteres: caractere
+>
+> senha: caractere
+>
+> senhas: vetor\[1..10\] de caractere
+>
+> i, j, posicao: inteiro
+>
+> inicio
+>
+> caracteres \<- "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@!#"
+>
+> repita
+>
+> escreval("Informe a categoria do usuario:")
+>
+> escreval("P - Professor")
+>
+> escreval("A - Aluno")
+>
+> escreval("F - Funcionario")
+>
+> leia(categoria)
+>
+> categoria \<- maiusc(categoria)
+>
+> se (categoria \<\> "P") e (categoria \<\> "A") e (categoria \<\> "F")
+> entao
+>
+> escreval("Categoria invalida! Digite apenas P, A ou F.")
+>
+> fimse
+>
+> ate (categoria = "P") ou (categoria = "A") ou (categoria = "F")
+>
+> para i de 1 ate 10 faca
+>
+> senha \<- categoria
+>
+> para j de 2 ate 8 faca
+>
+> aleatorio 1, 39
+>
+> leia(posicao)
+>
+> senha \<- senha + copia(caracteres, posicao, 1)
+>
+> fimpara
+>
+> senhas\[i\] \<- senha
+>
+> fimpara
+>
+> aleatorio off
+>
+> escreval("Senhas geradas:")
+>
+> para i de 1 ate 10 faca
+>
+> escreval(i, " - ", senhas\[i\])
+>
+> fimpara
+>
+> fimalgoritmo
+
+**2.3 Fluxograma**
+
+O fluxograma foi elaborado para mostrar o caminho seguido pelo
+algoritmo. Ele apresenta a entrada da categoria, a validação, a
+repetição para gerar dez senhas, a repetição interna para completar os
+caracteres e, no final, a exibição das senhas armazenadas no vetor.
+
+Figura 1 – Fluxograma do gerador de senhas.
+
+<img src="media/image1.png" style="width:4.5in;height:6.75in" />
+
+Fonte: Elaborado pelo autor, 2026.
+
+**3 CONCLUSÃO**
+
+Com a realização deste trabalho, foi possível entender melhor como
+montar um algoritmo usando entrada de dados, validação, repetição e
+vetor. A solução criada atende ao que foi pedido, pois gera dez senhas
+aleatórias com oito caracteres e mantém a primeira letra de acordo com a
+categoria escolhida pelo usuário.
+
+Além disso, o fluxograma ajudou a visualizar o funcionamento do
+algoritmo antes e depois da implementação. Dessa forma, o trabalho
+contribuiu para praticar os primeiros conceitos de lógica de programação
+de forma simples e organizada.
+
+**REFERÊNCIAS**
+
+**FACULDADE DE TECNOLOGIA DE LINS PROF. ANTONIO SEABRA.** Atividade:
+desenvolvimento de algoritmo para geração de senhas aleatórias por
+categoria de usuário. Lins: Fatec, 2026.

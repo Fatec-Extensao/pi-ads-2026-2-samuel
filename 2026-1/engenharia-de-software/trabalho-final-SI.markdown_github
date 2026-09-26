@@ -1,0 +1,1009 @@
+**CENTRO ESTADUAL DE EDUCAÇÃO TECNOLOGICA PAULA SOUZA**
+
+**FACULDADE DE TECNOLOGIA DE LINS PROF. ANTONIO SEABRA**
+
+**CURSO SUPERIOR DE TECNOLOGIA EM ANÁLISE E DESENVOLVIMENTO DE
+SISTEMAS**
+
+**IGOR RODRIGUES DOS SANTOS**
+
+**LUÍS MIGUEL SCHIAZZA**
+
+**MARCELO OLIVEIRA SOUZA**
+
+**MATHEUS CARDOSO DE OLIVEIRA BISPO**
+
+**PAULO ALVARES NETO**
+
+**SAMUEL DA SILVA ROBBLES GARCIA**
+
+**SISTEMA WEB PARA GESTÃO DE PESQUISAS POR QUESTIONÁRIOS**
+
+**LISTA DE REQUISITOS - BACKLOG INICIAL INTEGRADO**
+
+**LINS/SP**
+
+**1º SEMESTRE/2026**
+
+**SUMÁRIO**
+
+1 INTRODUÇÃO
+
+2 VISÃO GERAL DO SISTEMA
+
+2.1 Atores do sistema
+
+2.2 Requisitos funcionais consolidados
+
+2.3 Requisitos não funcionais
+
+3 REQUISITOS DE SEGURANÇA
+
+4 BACKLOG INICIAL
+
+5 ALGORITMO DA FUNCIONALIDADE DE GERAÇÃO DE SENHAS
+
+6 RASTREABILIDADE DOS REQUISITOS
+
+7 CONSIDERAÇÕES FINAIS
+
+REFERÊNCIAS
+
+Atualize este campo no Word para paginação automática.
+
+# 1 INTRODUÇÃO
+
+O backlog inicial é uma lista dinâmica e priorizada de funcionalidades,
+melhorias e correções necessárias para o desenvolvimento de um software.
+Ele orienta a equipe sobre o que deve ser construído, em qual ordem e
+com quais critérios de aceitação. Este documento apresenta o backlog
+inicial integrado do Sistema Web para Gestão de Pesquisas por
+Questionários, unindo o Projeto Integrador e o trabalho de Lógica
+desenvolvido em VisualG.
+
+A estrutura principal segue o modelo de backlog fornecido, contemplando
+épicos, histórias de usuário, prioridades, critérios de aceitação,
+requisitos de segurança, fluxos principais e alternativos dos casos de
+uso, além do algoritmo e do fluxograma da funcionalidade de geração de
+senhas anônimas.
+
+Para padronização do documento, os atores do sistema são definidos como
+Aluno, Professor e Colaborador. O termo funcionário, presente no
+trabalho de Lógica, foi tratado como Colaborador para manter
+consistência com o sistema proposto.
+
+# 2 VISÃOGERAL DO SISTEMA
+
+O sistema tem como objetivo permitir a gestão de pesquisas por
+questionários, com criação de pesquisas, definição de categorias de
+participantes, montagem de questionários por categoria, geração de
+senhas anônimas, aplicação dos questionários, registro das respostas,
+monitoramento da participação e emissão de relatórios estatísticos.
+
+## 2.1 Atores do sistema
+
+|  |  |
+|:--------------------|---------------------|
+| **Ator** |  |
+| Descrição |  |
+| Aluno | Participante que realiza cadastro, solicita senha anônima e responde questionários vinculados à sua categoria. |
+| Professor | Participante que realiza cadastro, solicita senha anônima e responde questionários vinculados à sua categoria. |
+| Colaborador | Usuário responsável por cadastrar pesquisas, categorias, perguntas, alternativas, questionários, gerar senhas, monitorar participação e gerar relatórios. |
+
+## 2.2 Requisitos funcionais consolidados
+
+|                     |                                       |
+|:--------------------|---------------------------------------|
+| **ID**              |                                       |
+| Requisito funcional |                                       |
+| RF01                | Cadastrar pesquisas                   |
+| RF02                | Cadastrar categorias de participantes |
+| RF03                | Criar questionários por categoria     |
+| RF04                | Cadastrar perguntas e alternativas    |
+| RF05                | Gerar senhas anônimas                 |
+| RF06                | Aplicar questionários via senha       |
+| RF07                | Registrar respostas no banco de dados |
+| RF08                | Impedir reutilização de senhas        |
+| RF09                | Monitorar participação em tempo real  |
+| RF10                | Gerar relatórios estatísticos         |
+| RF11                | Cadastrar usuário participante        |
+| RF12                | Requisitar senha anônima              |
+
+## 2.3 Requisitos não funcionais
+
+|  |  |
+|:--------------------|---------------------|
+| **Categoria** |  |
+| Requisito |  |
+| Usabilidade | Interface web amigável, com formulários claros e mensagens de retorno compreensíveis. |
+| Usabilidade | Layout responsivo para utilização em computadores e dispositivos móveis. |
+| Segurança | Senhas armazenadas de forma criptografada no banco de dados. |
+| Segurança | Validação de acesso e controle de funcionalidades por perfil. |
+| Segurança | Proteção contra múltiplas respostas e reutilização de senhas. |
+| Performance | Capacidade de suportar múltiplos acessos simultâneos. |
+| Portabilidade | Funcionamento em navegadores modernos. |
+
+# 3 REQUISITOS DE SEGURANÇA
+
+|  |  |
+|:--------------------|---------------------|
+| **ID** |  |
+| Requisito de segurança |  |
+| RS01 | Complexidade da senha: o sistema deve exigir senha com no mínimo8 caracteres, contendo letras maiúsculas, letras minúsculas, números e caracteres especiais. |
+| RS02 | Criptografia de senhas: o sistema deve armazenar senhas utilizando algoritmo de hash seguro, como BCRYPT ou Argon2. |
+| RS03 | Verificação de e-mail: o sistema deve validar o e-mail informado por meio do envio de link de confirmação. |
+| RS04 | Controle de acesso: o sistema deve restringir funcionalidades de acordo com o perfil de acesso do usuário. |
+| RS05 | Proteção contra força bruta: o sistema deve bloquear temporariamente o acesso após 5 tentativas consecutivas de login inválidas. |
+| RS06 | Uso único de senha anônima: o sistema deve impedir que uma senha usada para responder questionário seja utilizada novamente. |
+| RS07 | Anonimização: A senha deve permitir validação da categoria sem expor a identidade do respondente nos relatórios estatísticos. |
+
+# 4 BACKLOG INICIAL
+
+Cada item do backlog segue a estrutura padrão: ID, história de usuário,
+prioridade, critérios de aceitação, fluxo principal e fluxos
+alternativos.
+
+## US01 - Cadastrar categoria de participante
+
+Como Colaborador, quero cadastrar categorias de participantes, para
+organizar questionários e senhas conforme o público participante.
+
+**Prioridade: Alta.**
+
+**Critérios de aceitação:**
+
+•Deve permitir informar o nome da categoria de participante.
+
+•Deve verificar se a categoria já existe antes de salvar.
+
+•Deve salvar a categoria no banco de dados.
+
+•Deve exibir mensagem de cadastro concluído quando a operação for
+realizada com sucesso.
+
+**Fluxo principal:**
+
+1\. O Colaborador acessa a tela de escolha de cadastros.
+
+2\. O Colaborador seleciona a opção cadastrar categoria de participante.
+
+3\. O sistema abre o formulário correspondente.
+
+4\. O Colaborador preenche o campo categoria de participante.
+
+5\. O Colaborador clica em Cadastrar.
+
+6\. O sistema verifica se a categoria já existe.
+
+7\. O sistema cria o cadastro no banco de dados.
+
+8\. O sistema exibe a mensagem cadastro concluído.
+
+9\. O Colaborador confirma a mensagem e o sistema limpa o campo de
+cadastro.
+
+**Fluxos alternativos:**
+
+•Se a categoria jáexistir, o sistema exibe a mensagem Categoria já
+existente, limpa o campo e retorna ao preenchimento.
+
+•Se o campo estiver vazio, o sistema informa que a categoria é
+obrigatória e não salva o cadastro.
+
+<img src="media/image1.png" style="width:5.46807in;height:1.3189in" />
+
+Figura 1 - Diagrama de caso de uso: cadastrar categoria de participante.
+Fonte: Projeto Integrador, 2026.
+
+## US02 - Cadastrar pesquisa
+
+Como Colaborador, quero cadastrar uma nova pesquisa, para iniciar e
+controlar um processo de coleta de dados.
+
+**Prioridade: Alta.**
+
+**Critérios de aceitação:**
+
+•Deve permitir informar título, descrição, data de início, data final e
+status.
+
+• O status deve aceitar as opções ativa e inativa.
+
+•Deve verificar duplicidade de título.
+
+•Deve salvar a pesquisa no banco de dados.
+
+•Deve exibir mensagem de cadastro concluído.
+
+**Fluxo principal:**
+
+1\. O Colaborador acessa a tela de escolha de cadastros.
+
+2\. O Colaborador seleciona a opção cadastrar pesquisa.
+
+3\. O sistema abre o formuláriode pesquisa.
+
+4\. O Colaborador preenche título, descrição, data de início, data final
+e status.
+
+5\. O Colaborador clica em Cadastrar.
+
+6\. O sistema verifica se o título já existe.
+
+7\. O sistema salvo a pesquisa no banco de dados.
+
+8\. O sistema exibe a mensagem cadastro concluído e limpa os campos.
+
+**Fluxos alternativos:**
+
+•Se o título já existir, o sistema exibe a mensagem Título já existente,
+limpa o campo Título e retorna ao preenchimento.
+
+•Se as datas estiverem inconsistentes, o sistema solicita correção antes
+de salvar.
+
+<img src="media/image2.jpeg" style="width:5.46807in;height:1.66776in" />
+
+Figura 2 - Diagrama de caso de uso: cadastrar pesquisa. Fonte: Projeto
+Integrador, 2026.
+
+## US03 - Cadastrar perguntas e alternativas
+
+Como Colaborador, quero cadastrar perguntas e alternativas de resposta,
+para montar os questionários que serão aplicados aos participantes.
+
+**Prioridade: Alta.**
+
+**Critérios de aceitação:**
+
+•Deve permitir cadastrar o texto da pergunta.
+
+•Deve permitir cadastrar alternativas vinculadas à pergunta.
+
+•Deve salvar pergunta e alternativas no banco de dados.
+
+•Deve permitir realizar novo cadastro após salvar.
+
+**Fluxo principal:**
+
+1\. O Colaborador acessa a tela de escolha de cadastros.
+
+2\. O Colaborador seleciona cadastrar perguntas e alternativas.
+
+3\. O sistema abre o formulário correspondente.
+
+4\. O Colaborador preenche a pergunta e suas alternativas.
+
+5\. O Colaborador clica em Cadastrar.
+
+6\. O sistema salvo os dados no banco de dados.
+
+7\. O sistema exibe cadastro concluído e pergunta se deseja realizar
+novo cadastro.
+
+8\. O Colaborador escolhe não é o sistema retorna à tela de escolha de
+cadastros.
+
+**Fluxos alternativos:**
+
+• Se o Colaborador escolher Sim para realizar novo cadastro, o sistema
+limpa os campos e retorna ao preenchimento.
+
+•Se a pergunta ou alternativa obrigatória estiver vazia, o sistema
+informa o erro e não salva.
+
+<img src="media/image3.png" style="width:5.46807in;height:1.82633in" />
+
+Figura 3 - Diagrama de caso de uso: cadastrar pergunta e alternativa.
+Fonte: Projeto Integrador, 2026.
+
+## US04 - Criar questionário por categoria
+
+Como Colaborador, quero criar questionários vinculados a uma categoria
+cadastrada, para aplicar perguntas específicas para cada público
+participante.
+
+**Prioridade: Alta.**
+
+**Critérios de aceitação:**
+
+•Deve permitir selecionar uma pesquisa ativa.
+
+•Deve permitir selecionar uma categoria cadastrada.
+
+•Deve permitir escolher perguntas e alternativas previamente
+cadastradas.
+
+•Deve salvar o questionário vinculado à pesquisa e à categoria.
+
+**Fluxo principal:**
+
+1\. O Colaborador acessa a área de questionários.
+
+2\. O sistema lista pesquisas ativas e categorias cadastradas.
+
+3\. O Colaborador seleciona a pesquisa, a categoria e as perguntas
+desejadas.
+
+4\. O Colaborador confirma a criação do questionário.
+
+5\. O sistema salvo o questionário e exibe mensagem de sucesso.
+
+**Fluxos alternativos:**
+
+•Senão houver categoria cadastrada, o sistema orienta o Colaborador a
+cadastrar uma categoria antes.
+
+•Senão houver perguntas cadastradas, o sistema orienta o Colaborador a
+cadastrar perguntas e alternativas antes.
+
+## US05 - Gerar senhas anônimas
+
+Como Colaborador, quero gerar senhas anônimas pôr categoria de
+participante, para distribuir acessos únicos aos questionários sem
+identificar diretamente o respondente.
+
+**Prioridade: Alta.**
+
+**Critérios de aceitação:**
+
+•Deve gerar senhas com oito caracteres.
+
+• A primeira letra deve identificar a categoria: P para Professor, A
+para Aluno e C para Colaborador.
+
+•Deve gerar dez senhas por execução do algoritmo.
+
+•Deve armazenar as senhas de forma segura, preferencialmente por hash.
+
+•Deve impedir duplicidade de senha ativa.
+
+•Deve vincular cada senha à categoria correspondente.
+
+**Fluxo principal:**
+
+1\. O Colaborador acessa a função de geração desenhas.
+
+2\. O sistema solicita a categoria desejada.
+
+3\. O Colaborador informa P, A ou C.
+
+4\. O sistema válida a categoria.
+
+5\. O sistema gera dez senhas com oito caracteres.
+
+6\. O sistema armazena as senhas vinculadas à categoria.
+
+7\. O sistema exibe a lista de senhas geradas para distribuição
+controlada.
+
+**Fluxos alternativos:**
+
+•Se a categoria informada for inválida, o sistema exibe mensagem de erro
+e solicita nova categoria.
+
+•Se ocorrer duplicidade, o sistema descarta a senha repetida e gera
+outra.
+
+•Se houver falha ao salvar, o sistema informa o erro e não libera as
+senhas para uso.
+
+## US06 - Cadastrar usuário
+
+Como Aluno ou Professor, quero realizar meu cadastro com e-mail
+institucional e categoria, para solicitar senha e responder
+questionários autorizados.
+
+**Prioridade: Alta.**
+
+**Critérios de aceitação:**
+
+•Deve permitir cadastro com e-mail e senha.
+
+•Deve permitir selecionar o tipo de ator: Aluno ou Professor.
+
+•Deve validar os requisitos de segurança da senha.
+
+•Deve validar o e-mail institucional.
+
+•Devecriar uma nova conta de login quando os dados forem válidos.
+
+**Fluxo principal:**
+
+1\. O Aluno ou Professor acessa a tela de cadastro.
+
+2\. O usuárioseleciona Cadastrar.
+
+3\. O sistema abre campos de e-mail, senha e categoria.
+
+4\. O usuário preenche os campos.
+
+5\. O sistema verifica os requisitos de segurança.
+
+6\. O sistema adiciona a conta como novo login.
+
+7\. O usuário entra no sistema com o login criado.
+
+**Fluxos alternativos:**
+
+•Se o usuário ativer conta, seleciona Login, informa e-mail e senha, e o
+sistema valida os dados cadastrados.
+
+•Se e-mail ou senha forem inválidos, o sistema exibe Senha ou e-mail
+inválido.
+
+•Se a senha não cumprir os requisitos, o sistema informa a regra mínima
+e limpa o campo Senha.
+
+<img src="media/image4.png" style="width:5.46807in;height:2.15442in" />
+
+Figura 4 - Diagrama de caso de uso: cadastro de usuário. Fonte: Projeto
+Integrador, 2026.
+
+## US07 - Requisitar senha anônima
+
+Como Aluno ou Professor, quero solicitar uma senha anônima de acordo com
+minha categoria, para acessar o questionário sem expor minha identidade
+nas respostas.
+
+**Prioridade: Alta.**
+
+**Critérios de aceitação:**
+
+•Deve verificar se o usuário está cadastrado e autenticado.
+
+•Deve entregar apenas senha da categoria do usuário.
+
+•Deve bloquear nova solicitação quando o usuário já tiver recebido uma
+senha válida.
+
+•Deve registrar que a senha foi entregue ao usuário sem expor essa
+identificação nos relatórios de resposta.
+
+**Fluxo principal:**
+
+1\. O Aluno ou Professor acessa a área de solicitação de senha.
+
+2\. O sistema identifica a categoria do usuário.
+
+3\. O usuário solicita uma senha.
+
+4\. O sistema seleciona uma senha anônima disponível para a categoria.
+
+5\. O sistema entrega a senha e bloqueia nova solicitação para o mesmo
+usuário.
+
+**Fluxos alternativos:**
+
+•Senão houver senha disponível para a categoria, o sistema informa
+indisponibilidade e orienta aguardar nova geração.
+
+•Se o usuário ativer solicitado senha, o sistema informa que não é
+possível solicitar outra.
+
+## US08 - Aplicar questionário via senha
+
+Como Aluno ou Professor, quero acessar um questionário usando senha
+anônima, para responder ao formulário associado à minha categoria.
+
+**Prioridade: Alta.**
+
+**Critérios de aceitação:**
+
+•Deve validar se a senha existe, está ativa e pertence à categoria
+correta.
+
+•Deve abrir apenas questionários vinculados à categoria de senha.
+
+•Deve impedir acesso com senha inválida, expirada ou já utilizada.
+
+•Deve apresentar o formulário de forma clara e responsiva.
+
+**Fluxo principal:**
+
+1\. O Aluno ou Professor informa a senha anônima.
+
+2\. O sistema válida a senha.
+
+3\. O sistema identifica a categoria vinculada.
+
+4\. O sistema abre o questionário correspondente.
+
+5\. O usuário responde às perguntas e envia o formulário.
+
+**Fluxos alternativos:**
+
+•Se a senha for inválida, o sistema exibe mensagem de acesso negado.
+
+•Se a senha já tiver sido utilizada, o sistema informa que a senha não
+pode ser reutilizada.
+
+•Senão houver questionário ativo para a categoria, o sistema informa que
+não há formulário disponível.
+
+## US09 - Registrar respostas no banco de dados
+
+Como Aluno ou Professor, quero ter minhas respostas registradas após
+enviar o questionário, para garantir que a participação seja
+contabilizada corretamente.
+
+**Prioridade: Alta.**
+
+**Critérios de aceitação:**
+
+•Deve salvar todas as respostas enviadas no banco de dados.
+
+•Deve registrar data e hora do envio.
+
+•Deve preservar o anonimato do respondente nos dados de relatório.
+
+•Deve confirmar o envio ao usuário.
+
+**Fluxo principal:**
+
+1\. O usuário conclui o preenchimento do questionário.
+
+2\. O usuário clica em Enviar.
+
+3\. O sistema valida se todas as questões obrigatórias foram
+respondidas.
+
+4\. O sistema salva as respostas no banco de dados.
+
+5\. O sistema exibe mensagem de envio concluído.
+
+**Fluxos alternativos:**
+
+•Se houver questão obrigatória sem resposta, o sistema destaca o campo e
+solicita preenchimento.
+
+•Se ocorrer falha de gravação, o sistema informa o problema e mantém o
+formulário para nova tentativa.
+
+## US10 - Impedir reutilização de senhas
+
+Como Colaborador, quero garantir que cada senha anônima seja usada
+apenas uma vez, para evitar múltiplas respostas pelo mesmo acesso.
+
+**Prioridade: Alta.**
+
+**Critérios de aceitação:**
+
+•Deve marcar a senha como utilizada após o envio válido do questionário.
+
+•Deve impedir novo acesso com senha utilizada.
+
+•Deve manter histórico do uso para auditoria interna.
+
+•Deve proteger a relação entre senha e resposta para preservar
+anonimato.
+
+**Fluxo principal:**
+
+1\. O sistema recebe o envio válido do questionário.
+
+2\. O sistema registra as respostas.
+
+3\. O sistema altera o status da senha para utilizada.
+
+4\. O sistema bloqueia novos acessos com essa senha.
+
+**Fluxos alternativos:**
+
+•Se o usuário tentar reutilizar a senha, o sistema exibe mensagem de
+senha já utilizada.
+
+•Se a atualização do status falhar, o sistema não deve confirmar o envio
+até concluir a operação.
+
+## US11 - Monitorar participação em tempo real
+
+Como Colaborador, quero acompanhar a participação em tempo real, para
+verificar o andamento das respostas e a adesão dos participantes.
+
+**Prioridade: Média.**
+
+**Critérios de aceitação:**
+
+•Deve apresentar quantidade de questionários respondidos.
+
+•Deve permitir visualização por pesquisa e categoria.
+
+•Deve atualizar os dados conforme novas respostas forem registradas.
+
+•Deve exibir informações sem identificar diretamente os respondentes.
+
+**Fluxo principal:**
+
+1\. O Colaborador acessa o painel de monitoramento.
+
+2\. O sistema consulta as respostas registradas.
+
+3\. O sistema apresenta indicadores por pesquisa e categoria.
+
+4\. O Colaborador acompanha a evolução da participação.
+
+**Fluxos alternativos:**
+
+•Senão houver respostas, o sistema mostra painel zerado.
+
+•Se houver falha de consulta, o sistema informa indisponibilidade
+temporária dos dados.
+
+## US12 - Gerar relatórios estatísticos
+
+Como Colaborador, quero gerar relatórios estatísticos, para analisar os
+resultados das pesquisas cadastradas.
+
+**Prioridade: Média.**
+
+**Critérios de aceitação:**
+
+•Deve permitir selecionar pesquisa, categoria e período.
+
+•Deve consolidar respostas em indicadores estatísticos.
+
+•Deve apresentar os resultados sem expor a identidade dos respondentes.
+
+•Deve permitir visualização dos resultados de atividades e pesquisas
+cadastradas.
+
+**Fluxo principal:**
+
+1\. O Colaborador acessa a área de relatórios.
+
+2\. O Colaborador pesquisa o nome de um usuário e seleciona uma pesquisa
+cadastrada, conforme o tipo de relatório desejado.
+
+3\. O Colaborador clica em Gerar relatórios.
+
+4\. O sistema fornece resultados de atividades e pesquisas cadastradas.
+
+5\. O sistema apresenta os dados estatístico são colaborador.
+
+**Fluxos alternativos:**
+
+•Senão houver dados para os filtros escolhidos, o sistema informa que
+nenhum resultado foi encontrado.
+
+• Se o Colaborador não tiver permissão, osistema bloqueia o acesso à
+funcionalidade.
+
+<img src="media/image5.png" style="width:5.46807in;height:2.46063in" />
+
+Figura 5 - Diagrama de caso de uso: gerar relatórios. Fonte: Projeto
+Integrador, 2026.
+
+# 5 ALGORITMO DA FUNCIONALIDADE DE GERAÇÃO DE SENHAS
+
+A funcionalidade de geração de senhas foi integrada a partir do trabalho
+de Lógica. O algoritmo solicita a categoria do usuário, valida a opção
+informada e gera dez senhas com oito caracteres cada. A primeira letra
+da senha identifica a categoria escolhida. Para manter a padronização
+dos atores deste documento, foram utilizadas as siglas P para Professor,
+A para Aluno e C para Colaborador.
+
+## 5.1 Regras utilizadas
+
+•Gerar exatamente dez senhas por execução.
+
+•Cada senha deve possuir oito caracteres.
+
+• A primeira letra deve representar a categoria escolhida.
+
+•Aceitar somente as categorias Professor, Aluno e Colaborador.
+
+•Utilizar letras maiúsculas, números e símbolos permitidos.
+
+•Armazenar as senhas em vetor antes da exibição ou gravação.
+
+## 5.2 Algoritmo em VisualG
+
+algoritmo "Gerador de Senhas"
+
+var
+
+categoria: caractere
+
+caracteres: caractere
+
+senha: caractere
+
+senhas: vetor\[1..10\] de caractere
+
+i, j, posicao: inteiro
+
+inicio
+
+caracteres \<- "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@!#"
+
+repita
+
+escreval("Informe a categoria do usuario:")
+
+escreval("P - Professor")
+
+escreval("A - Aluno")
+
+escreval("C - Colaborador")
+
+leia(categoria)
+
+categoria \<- maiusc(categoria)
+
+se (categoria \<\> "P") e (categoria \<\> "A") e (categoria \<\> "C")
+entao
+
+escreval("Categoria invalida! Digite apenas P, A ou C.")
+
+fimse
+
+ate (categoria = "P") ou (categoria = "A") ou (categoria = "C")
+
+para i de 1 ate 10 faca
+
+senha \<- categoria
+
+para j de 2 ate 8 faca
+
+aleatorio 1, 39
+
+leia(posicao)
+
+senha \<- senha + copia(caracteres, posicao, 1)
+
+fimpara
+
+senhas\[i\] \<- senha
+
+fimpara
+
+aleatorio off
+
+escreval("Senhas geradas:")
+
+para i de 1 ate 10 faca
+
+escreval(i, " - ", senhas\[i\])
+
+fimpara
+
+fimalgoritmo
+
+## 5.3 Fluxograma
+
+O fluxograma representa a entrada da categoria, a validação, a repetição
+para gerar dez senhas, a repetição interna para completar os oito
+caracteres e a exibição das senhas armazenadas no vetor.
+
+<img src="media/image6.png" style="width:4.70254in;height:6.64917in" />
+
+Figura 6 - Fluxograma do gerador de senhas. Fonte: Trabalho de Lógica,
+2026.
+
+# 6 RASTREABILIDADE DOS REQUISITOS
+
+|                                              |      |                    |
+|:---------------------------------------------|------|--------------------|
+| **Requisito**                                |      |                    |
+| História de usuário                          |      |                    |
+| Ator principal                               |      |                    |
+| RF01 - Cadastrar pesquisas                   | US02 | Colaborador        |
+| RF02 - Cadastrar categorias de participantes | US01 | Colaborador        |
+| RF03 - Criar questionáriospor categoria      | US04 | Colaborador        |
+| RF04 - Cadastrar perguntas e alternativas    | US03 | Colaborador        |
+| RF05 - Gerar senhas anônimas                 | US05 | Colaborador        |
+| RF06 - Aplicar questionáriosvia senha        | US08 | Aluno ou Professor |
+| RF07 - Registrar respostas no banco de dados | US09 | Aluno ou Professor |
+| RF08 - Impedir reutilização de senhas        | US10 | Colaborador        |
+| RF09 - Monitorar participação em tempo real  | US11 | Colaborador        |
+| RF10 - Gerar relatórios estatísticos         | US12 | Colaborador        |
+| RF11 - Cadastrar usuárioparticipante         | US06 | Aluno ou Professor |
+| RF12 - Requisitar senha anônima              | US07 | Aluno ou Professor |
+
+# 7 CONSIDERAÇÕES FINAIS
+
+O documento consolidado organiza os requisitos do Sistema Web para
+Gestão de Pesquisas por Questionários em formato de backlog acadêmico,
+integrando as informações do Projeto Integrador e do trabalho de Lógica.
+As histórias de usuário foram estruturadas com prioridade, critérios de
+aceitação fluxos de uso, enquanto a funcionalidade de geração de senhas
+recebeu o algoritmo VisualG e seu fluxograma correspondente.
+
+A consolidação também padroniza os atores, corrige inconsistências
+textuais e reforça os requisitos de segurança necessários para
+autenticação, anonimização, controle de acesso e proteção contra
+múltiplas respostas.
+
+# REFERÊNCIAS
+
+FACULDADE DE TECNOLOGIA DE LINS PROF. ANTONIO SEABRA. Atividade:
+desenvolvimento de algoritmo para geração de senhas aleatórias por
+categoria de usuário. Lins: Fatec, 2026.
+
+SANTOS, Igor Rodrigues dos et al. Sistema Web para Gestão de Pesquisas
+por Questionários: estudo de caso. Lins: Fatec, 2026.
+
+CENTRO ESTADUAL DE EDUCAÇÃOTECNOLÓGICA PAULA SOUZA. Modelo de lista de
+requisitos: backlog inicial. Lins: Fatec, 2026.
+
+**CENTRO ESTADUAL DE EDUCAÇÃO TECNOLÓGICA PAULA SOUZA**
+
+**FACULDADE DE TECNOLOGIA DE LINS PROF. ANTONIO SEABRA**
+
+**CURSO SUPERIOR DE TECNOLOGIA EM ANÁLISE E DESENVOLVIMENTO DE
+SISTEMAS**
+
+**IGOR RODRIGUES SANTOS**
+
+**LUIZ MIGUEL SCHIAZZA**
+
+**MARCELO OLIVEIRA SOUZA**
+
+**MATHEUS CARDOSO DE OLIVEIRA BISPO**
+
+**SAMUEL DA SILVA ROBLES GARCIA**
+
+**DESENVOLVIMENTO DE ALGORITMO PARA GERAÇÃO DE SENHAS**
+
+**ALEATÓRIAS POR CATEGORIA DE USUÁRIO**
+
+**LINS/SP**
+
+**1º SEMESTRE/2026**
+
+**RESUMO**
+
+Este trabalho apresenta o desenvolvimento de um algoritmo simples para
+geração de senhas aleatórias conforme a categoria do usuário. A
+atividade foi feita em VisualG e teve como objetivo solicitar uma
+categoria de acesso, validar a opção informada e criar dez senhas com
+oito caracteres cada. A primeira letra da senha identifica a categoria
+escolhida, sendo P para professor, A para aluno e F para funcionário.
+Para completar as senhas, o algoritmo utiliza caracteres permitidos,
+como letras maiúsculas, números e alguns símbolos. Também foi elaborado
+um fluxograma para representar o funcionamento do sistema de forma
+visual. Com isso, foi possível praticar estruturas condicionais,
+estruturas de repetição e o uso de vetor, mantendo uma solução simples e
+adequada ao início dos estudos em lógica de programação.
+
+**Palavras-chave:** Algoritmo. Senhas. VisualG. Fluxograma.
+
+**1 INTRODUÇÃO**
+
+A lógica de programação é uma parte importante para quem está começando
+na área de Análise e Desenvolvimento de Sistemas. Por meio dela, é
+possível organizar uma sequência de passos para resolver um problema de
+forma clara. Neste trabalho, foi desenvolvido um algoritmo para gerar
+senhas aleatórias de acordo com a categoria de usuário informada.
+
+A atividade solicitava que o sistema identificasse se o usuário era
+professor, aluno ou funcionário. A partir dessa informação, a senha
+deveria começar obrigatoriamente com a letra da categoria escolhida.
+Depois disso, os demais caracteres seriam gerados de forma aleatória,
+respeitando a quantidade total de oito caracteres.
+
+**2 DESENVOLVIMENTO**
+
+O algoritmo foi pensado de maneira simples, utilizando comandos básicos
+do VisualG. Primeiro, o programa apresenta as opções de categoria para o
+usuário. Em seguida, ele lê a opção digitada e verifica se ela é válida.
+Caso o usuário digite uma letra diferente de P, A ou F, o sistema mostra
+uma mensagem de erro e pede a categoria novamente.
+
+Depois que a categoria é validada, o programa inicia a geração das
+senhas. Foi usado um vetor com dez posições para armazenar todas as
+senhas criadas. Cada senha começa com a letra da categoria e recebe mais
+sete caracteres sorteados da lista permitida.
+
+**2.1 Regras utilizadas**
+
+As regras utilizadas foram: gerar exatamente dez senhas, cada uma com
+oito caracteres; iniciar cada senha com a letra da categoria; aceitar
+somente as categorias professor, aluno e funcionário; e utilizar apenas
+os caracteres permitidos no enunciado da atividade.
+
+**2.2 Algoritmo em VisualG**
+
+> algoritmo "Gerador de Senhas"
+>
+> var
+>
+> categoria: caractere
+>
+> caracteres: caractere
+>
+> senha: caractere
+>
+> senhas: vetor\[1..10\] de caractere
+>
+> i, j, posicao: inteiro
+>
+> inicio
+>
+> caracteres \<- "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@!#"
+>
+> repita
+>
+> escreval("Informe a categoria do usuario:")
+>
+> escreval("P - Professor")
+>
+> escreval("A - Aluno")
+>
+> escreval("F - Funcionario")
+>
+> leia(categoria)
+>
+> categoria \<- maiusc(categoria)
+>
+> se (categoria \<\> "P") e (categoria \<\> "A") e (categoria \<\> "F")
+> entao
+>
+> escreval("Categoria invalida! Digite apenas P, A ou F.")
+>
+> fimse
+>
+> ate (categoria = "P") ou (categoria = "A") ou (categoria = "F")
+>
+> para i de 1 ate 10 faca
+>
+> senha \<- categoria
+>
+> para j de 2 ate 8 faca
+>
+> aleatorio 1, 39
+>
+> leia(posicao)
+>
+> senha \<- senha + copia(caracteres, posicao, 1)
+>
+> fimpara
+>
+> senhas\[i\] \<- senha
+>
+> fimpara
+>
+> aleatorio off
+>
+> escreval("Senhas geradas:")
+>
+> para i de 1 ate 10 faca
+>
+> escreval(i, " - ", senhas\[i\])
+>
+> fimpara
+>
+> fimalgoritmo
+
+**2.3 Fluxograma**
+
+O fluxograma foi elaborado para mostrar o caminho seguido pelo
+algoritmo. Ele apresenta a entrada da categoria, a validação, a
+repetição para gerar dez senhas, a repetição interna para completar os
+caracteres e, no final, a exibição das senhas armazenadas no vetor.
+
+Figura 1 – Fluxograma do gerador de senhas.
+
+<img src="media/image1.png" style="width:4.5in;height:6.75in" />
+
+Fonte: Elaborado pelo autor, 2026.
+
+**3 CONCLUSÃO**
+
+Com a realização deste trabalho, foi possível entender melhor como
+montar um algoritmo usando entrada de dados, validação, repetição e
+vetor. A solução criada atende ao que foi pedido, pois gera dez senhas
+aleatórias com oito caracteres e mantém a primeira letra de acordo com a
+categoria escolhida pelo usuário.
+
+Além disso, o fluxograma ajudou a visualizar o funcionamento do
+algoritmo antes e depois da implementação. Dessa forma, o trabalho
+contribuiu para praticar os primeiros conceitos de lógica de programação
+de forma simples e organizada.
+
+**REFERÊNCIAS**
+
+**FACULDADE DE TECNOLOGIA DE LINS PROF. ANTONIO SEABRA.** Atividade:
+desenvolvimento de algoritmo para geração de senhas aleatórias por
+categoria de usuário. Lins: Fatec, 2026.

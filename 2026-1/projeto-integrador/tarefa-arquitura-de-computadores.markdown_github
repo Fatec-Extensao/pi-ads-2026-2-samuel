@@ -1,0 +1,255 @@
+FATEC – PROFESSOR ANTIONIO SEABRA
+
+  
+
+  
+**LUÍS MIGUEL SCHIAZZA**
+
+IGOR RODRIGUES DOS SANTOS
+
+  
+  
+**RELATÓRIO TÉCNICO – História dos Computadores Desde sua criação mais
+Arcaica**
+
+  
+  
+PIRAJUÍ – SP  
+  
+2026
+
+Evolução dos Computadores ao Longo das Gerações
+
+A evolução dos computadores aconteceu ao longo de várias gerações, cada
+uma trazendo avanços importantes na tecnologia. No começo, os
+computadores eram máquinas mecânicas simples, e hoje temos sistemas
+muito avançados, com inteligência artificial e grande capacidade de
+processamento. Entender essa evolução é importante para quem faz Análise
+e Desenvolvimento de Sistemas, pois ajuda a compreender como as
+tecnologias atuais surgiram e como elas continuam evoluindo.
+
+Geração 0 – Computadores Mecânicos
+
+Período histórico: até a década de 1940  
+Tecnologia predominante: máquinas mecânicas
+
+Essa geração é considerada o início da computação. Os dispositivos eram
+totalmente mecânicos e serviam principalmente para cálculos matemáticos
+simples.
+
+Principais características:
+
+Funcionamento manual ou com pouca automação
+
+Baixa velocidade
+
+Não possuíam programação como conhecemos hoje
+
+Exemplos:
+
+Ábaco
+
+Máquina Analítica de Charles Babbage
+
+Limitações:
+
+Dependência total do ser humano
+
+Pouca precisão em cálculos mais complexos
+
+Impacto:  
+Mesmo sendo simples, essas máquinas foram importantes porque deram
+início à ideia de automatizar cálculos.
+
+1ª Geração – Válvulas Eletrônicas
+
+Período histórico: 1940 – 1956  
+Tecnologia predominante: válvulas
+
+Nessa geração surgiram os primeiros computadores eletrônicos. Eles eram
+muito grandes e consumiam muita energia.
+
+Principais características:
+
+Computadores enormes
+
+Muito calor durante o funcionamento
+
+Programação em linguagem de máquina
+
+Exemplos:
+
+ENIAC
+
+UNIVAC I
+
+Limitações:
+
+Alto custo
+
+Baixa confiabilidade
+
+Manutenção difícil
+
+Impacto:  
+Foi um avanço importante, pois marcou o início da computação eletrônica,
+usada principalmente em áreas militares e científicas.
+
+2ª Geração – Transistores
+
+Período histórico: 1956 – 1964  
+Tecnologia predominante: transistores
+
+Os transistores substituíram as válvulas, trazendo melhorias
+importantes.
+
+Principais características:
+
+Computadores menores
+
+Menor consumo de energia
+
+Mais confiáveis
+
+Exemplos:
+
+IBM 1401
+
+IBM 7090
+
+Limitações:
+
+Ainda eram caros
+
+Não eram acessíveis para uso pessoal
+
+Impacto:  
+Permitiu maior uso dos computadores em empresas e universidades.
+
+3ª Geração – Circuitos Integrados
+
+Período histórico: 1964 – 1971  
+Tecnologia predominante: circuitos integrados
+
+Nessa fase, vários componentes passaram a ser colocados em um único
+chip.
+
+Principais características:
+
+Computadores menores e mais rápidos
+
+Maior capacidade de processamento
+
+Surgimento dos primeiros sistemas operacionais
+
+Exemplo:
+
+IBM System/360
+
+Limitações:
+
+Ainda tinham custo elevado
+
+Impacto:  
+Facilitou o uso comercial dos computadores e aumentou sua eficiência.
+
+4ª Geração – Microprocessadores
+
+Período histórico: 1971 – atual  
+Tecnologia predominante: microprocessadores
+
+Essa geração é a base dos computadores que usamos hoje.
+
+Principais características:
+
+Surgimento dos computadores pessoais (PCs)
+
+Interfaces gráficas
+
+Uso da internet
+
+Exemplos:
+
+IBM PC
+
+Apple II
+
+Limitações:
+
+Limitações físicas no avanço dos chips
+
+Impacto:  
+Foi a geração que mais mudou a sociedade, pois tornou os computadores
+acessíveis para muitas pessoas.
+
+5ª Geração – Inteligência Artificial
+
+Período histórico: 1980 – atual  
+Tecnologia predominante: inteligência artificial e processamento
+avançado
+
+Essa geração continua em desenvolvimento e envolve tecnologias modernas.
+
+Principais características:
+
+Uso de inteligência artificial
+
+Processamento de grandes volumes de dados
+
+Automação
+
+Exemplos:
+
+Assistentes virtuais
+
+Sistemas de IA
+
+Limitações:
+
+Alto custo
+
+Dependência de muitos dados
+
+Questões éticas
+
+Impacto:  
+Está mudando várias áreas, como saúde, educação e tecnologia.
+
+Parte Analítica
+
+Arquitetura dos computadores
+
+Um modelo muito importante é a arquitetura de John von Neumann, usada
+até hoje como base. Ela define que o computador deve ter processador,
+memória e dispositivos de entrada e saída.
+
+Essa arquitetura é importante porque organiza o funcionamento do
+computador e permite que programas sejam executados de forma lógica.
+
+Diferença entre hardware e software
+
+Hardware: parte física do computador, como teclado, memória e
+processador
+
+Software: programas que fazem o computador funcionar
+
+Com o tempo, o hardware foi ficando mais avançado e o software também
+evoluiu, ficando mais fácil de usar.
+
+Evolução do hardware e linguagens
+
+No começo, a programação era feita em linguagem de máquina, que era
+difícil de entender. Com a evolução do hardware, surgiram linguagens
+mais fáceis, como Python e Java.
+
+Isso aconteceu porque computadores mais modernos conseguem processar
+linguagens mais complexas.
+
+TODA MATÉRIA. **História e evolução dos computadores**. Disponível em:
+<https://www.todamateria.com.br/historia-e-evolucao-dos-computadores/>.
+Acesso em: 05 maio 2026.
+
+SONG, Siang Wun. **História da evolução do computador**. Universidade de
+São Paulo (USP). Disponível em:
+<https://www.ime.usp.br/~song/mac344/slides02-evolution.pdf>. Acesso em:
+05 maio 2026.
