@@ -19,7 +19,7 @@
 
 | Nome do Aluno | GitHub / Perfil |
 | :--- | :--- |
-| Samuel da Silva Robles Garcia | [@usuario1](https://github.com/usuario1) |
+| Samuel da Silva Robles Garcia | [@samuelrobles012-lgtm](https://github.com/samuelrobles012-lgtm) |
 | Igor Rodrigues | [@TicooooIg](https://github.com/TicooooIg) |
 | Luis Miguel Schiazza | [@luismschiazza](https://github.com/luismschiazza) |
 | Marcelo Oliveira Souza | [@eaecelo](https://github.com/eaecelo) |
