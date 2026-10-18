@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Protótipo acadêmico de sistema para gestão de pesquisas de satisfação.">
+<title>Responder questionário — Gestão de Pesquisas</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<header>
+<figure>
+<img src="../img/fotoinicial.jpg" width="1200" height="240" alt="Banner do Sistema de Gestão de Pesquisas">
+<figcaption>Banner de apresentação do sistema</figcaption>
+</figure>
+<h1>Sistema de Gestão de Pesquisas</h1>
+<p>Protótipo acadêmico para criação, aplicação e acompanhamento de pesquisas.</p>
+<nav aria-label="Navegação principal">
+<ul>
+<li><a href="../index.html">Início</a></li>
+<li><a href="../login.html">Login</a></li>
+<li><a href="../main.html">Sistema</a></li>
+</ul>
+</nav>
+</header>
+<main id="conteudo">
+<nav aria-label="Navegação do sistema"><p><a href="../main.html">← Voltar ao painel</a></p></nav>
+<section aria-labelledby="titulo-funcao">
+<h2 id="titulo-funcao">Responder questionário</h2>
+<p>Preencha a senha anônima e responda às questões.</p>
+<form action="responder.html" method="get">
+<fieldset><legend>Identificação anônima</legend>
+<p><label for="senha">Senha anônima:</label><br><input id="senha" name="senha" type="text" minlength="4" maxlength="40" autocomplete="off" required></p>
+</fieldset>
+<fieldset><legend>Questionário de satisfação</legend>
+<p><label for="q1">1. Como você avalia sua experiência?</label><br><select id="q1" name="q1" required><option value="">Selecione</option><option>Excelente</option><option>Boa</option><option>Regular</option><option>Ruim</option></select></p>
+<p><label for="q2">2. Você recomendaria o serviço?</label><br><select id="q2" name="q2" required><option value="">Selecione</option><option>Sim</option><option>Não</option></select></p>
+<p><label for="comentario">3. Comentários:</label><br><textarea id="comentario" name="comentario" rows="5" maxlength="1000"></textarea></p>
+</fieldset>
+<button type="submit">Enviar respostas</button>
+</form>
+</section>
+<section><h2>Regra</h2><p>Após o envio, a senha deve ser marcada como utilizada para impedir uma segunda resposta.</p></section>
+</main>
+<footer>
+<hr>
+<p><strong>Projeto Integrador</strong> — Sistema de Gestão de Pesquisas</p>
+<p>Protótipo acadêmico desenvolvido utilizando somente HTML5.</p>
+</footer>
+</body>
+</html>
